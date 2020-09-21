@@ -1,0 +1,7 @@
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\Dynamite\Dynamite\obj\Debug\Dynamite.csprojAssemblyReference.cache
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\Dynamite\Dynamite\obj\Debug\Dynamite.csproj.CoreCompileInputs.cache
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\Dynamite\Dynamite\bin\Debug\Dynamite.exe.config
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\Dynamite\Dynamite\bin\Debug\Dynamite.exe
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\Dynamite\Dynamite\bin\Debug\Dynamite.pdb
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\Dynamite\Dynamite\obj\Debug\Dynamite.exe
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\Dynamite\Dynamite\obj\Debug\Dynamite.pdb
