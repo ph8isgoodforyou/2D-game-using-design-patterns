@@ -5,3 +5,10 @@ C:\Users\ignsa\Desktop\Objektinis programų projektavimas\Dynamite\Dynamite\bin\
 C:\Users\ignsa\Desktop\Objektinis programų projektavimas\Dynamite\Dynamite\bin\Debug\Dynamite.pdb
 C:\Users\ignsa\Desktop\Objektinis programų projektavimas\Dynamite\Dynamite\obj\Debug\Dynamite.exe
 C:\Users\ignsa\Desktop\Objektinis programų projektavimas\Dynamite\Dynamite\obj\Debug\Dynamite.pdb
+E:\Studijos\7 semestras\OPP\Proj\Dynamite\Dynamite\bin\Debug\Dynamite.exe.config
+E:\Studijos\7 semestras\OPP\Proj\Dynamite\Dynamite\bin\Debug\Dynamite.exe
+E:\Studijos\7 semestras\OPP\Proj\Dynamite\Dynamite\bin\Debug\Dynamite.pdb
+E:\Studijos\7 semestras\OPP\Proj\Dynamite\Dynamite\obj\Debug\Dynamite.csprojAssemblyReference.cache
+E:\Studijos\7 semestras\OPP\Proj\Dynamite\Dynamite\obj\Debug\Dynamite.csproj.CoreCompileInputs.cache
+E:\Studijos\7 semestras\OPP\Proj\Dynamite\Dynamite\obj\Debug\Dynamite.exe
+E:\Studijos\7 semestras\OPP\Proj\Dynamite\Dynamite\obj\Debug\Dynamite.pdb
