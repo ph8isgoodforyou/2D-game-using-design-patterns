@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FA2FEC3B-8138-4DF5-A335-44BAB47E7522}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Dynamite</RootNamespace>
     <AssemblyName>Dynamite</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
     <Compile Include="DemoGame.cs" />
     <Compile Include="DynamiteEngine\DynamiteEngine.cs">
       <SubType>Form</SubType>
@@ -54,11 +58,114 @@
     <Compile Include="DynamiteEngine\Shape2D.cs" />
     <Compile Include="DynamiteEngine\Sprite2D.cs" />
     <Compile Include="DynamiteEngine\Vector2.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="GameState.cs" />
+    <Compile Include="GameWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameWindow.Designer.cs">
+      <DependentUpon>GameWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lobby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lobby.Designer.cs">
+      <DependentUpon>Lobby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Bomb.cs" />
+    <Compile Include="Objects\Bonus.cs" />
+    <Compile Include="Objects\GameObject.cs" />
+    <Compile Include="Objects\Player.cs" />
+    <Compile Include="Packet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SaveGameData.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="World\Tile.cs" />
+    <Compile Include="World\World.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GameWindow.resx">
+      <DependentUpon>GameWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lobby.resx">
+      <DependentUpon>Lobby.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Armor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AT_DOWN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AT_LEFT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AT_RIGHT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AT_UP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlockDestructible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlockNonDestructible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bombe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deactivate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SpeedUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SuperBomb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T_DOWN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T_LEFT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T_RIGHT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T_UP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\World.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

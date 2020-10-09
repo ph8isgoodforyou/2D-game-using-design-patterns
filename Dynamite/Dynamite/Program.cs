@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 namespace Dynamite
 {
     class Program
     {
-        static void Main(string[] args)
+        //static void Main(string[] args)
+        //{
+        //    DemoGame game = new DemoGame();
+        //}
+        [STAThread]
+        static void Main()
         {
-            DemoGame game = new DemoGame();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainMenu());
+            //Application.Run(new Lobby());
+            //Application.Run(new GameWindow());
         }
     }
 }
