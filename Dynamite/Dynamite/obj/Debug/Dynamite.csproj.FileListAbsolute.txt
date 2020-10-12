@@ -12,3 +12,10 @@ E:\Studijos\7 semestras\OPP\Proj\Dynamite\Dynamite\obj\Debug\Dynamite.csprojAsse
 E:\Studijos\7 semestras\OPP\Proj\Dynamite\Dynamite\obj\Debug\Dynamite.csproj.CoreCompileInputs.cache
 E:\Studijos\7 semestras\OPP\Proj\Dynamite\Dynamite\obj\Debug\Dynamite.exe
 E:\Studijos\7 semestras\OPP\Proj\Dynamite\Dynamite\obj\Debug\Dynamite.pdb
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\bin\Debug\Dynamite.exe.config
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\bin\Debug\Dynamite.exe
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\bin\Debug\Dynamite.pdb
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\obj\Debug\Dynamite.csprojAssemblyReference.cache
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\obj\Debug\Dynamite.csproj.CoreCompileInputs.cache
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\obj\Debug\Dynamite.exe
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\obj\Debug\Dynamite.pdb

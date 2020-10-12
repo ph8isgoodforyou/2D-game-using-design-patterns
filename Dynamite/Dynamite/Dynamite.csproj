@@ -47,18 +47,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoGame.cs" />
+    <Compile Include="DynamiteEngine\Blocks\AbstractFactory\Block_AbstractFactory.cs" />
+    <Compile Include="DynamiteEngine\Blocks\AbstractProduct\DestroyableBlock.cs" />
+    <Compile Include="DynamiteEngine\Blocks\AbstractProduct\UndestroyableBlock.cs" />
+    <Compile Include="DynamiteEngine\Blocks\Blocks.cs" />
+    <Compile Include="DynamiteEngine\Blocks\Factory\Map_Factory.cs" />
+    <Compile Include="DynamiteEngine\Blocks\Product\destroyableBlockProduct\IceBlock.cs" />
+    <Compile Include="DynamiteEngine\Blocks\Product\destroyableBlockProduct\SandBlock.cs" />
+    <Compile Include="DynamiteEngine\Blocks\Product\undestroyableBlockProduct\TitaniumBlock.cs" />
+    <Compile Include="DynamiteEngine\Players\Character.cs" />
     <Compile Include="DynamiteEngine\DynamiteEngine.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DynamiteEngine\Weapons\AbstractProduct\Bomb.cs" />
+    <Compile Include="DynamiteEngine\Weapons\Product\BombProduct\drop_bomb.cs" />
+    <Compile Include="DynamiteEngine\Explosion.cs" />
+    <Compile Include="DynamiteEngine\Players\Health.cs" />
     <Compile Include="DynamiteEngine\Log.cs" />
+    <Compile Include="DynamiteEngine\Map\Map.cs" />
+    <Compile Include="DynamiteEngine\Players\Player.cs" />
     <Compile Include="DynamiteEngine\Shape2D.cs" />
     <Compile Include="DynamiteEngine\Sprite2D.cs" />
     <Compile Include="DynamiteEngine\Vector2.cs" />
+    <Compile Include="DynamiteEngine\Weapons\Product\MineProduct\floating_mine.cs" />
+    <Compile Include="DynamiteEngine\Weapons\Product\BombProduct\hand_bomb.cs" />
+    <Compile Include="DynamiteEngine\Weapons\Product\MineProduct\land_mine.cs" />
+    <Compile Include="DynamiteEngine\Weapons\AbstractProduct\Mine.cs" />
+    <Compile Include="DynamiteEngine\Weapons\Product\BombProduct\pipe_bomb.cs" />
+    <Compile Include="DynamiteEngine\Weapons\Factory\Player1_Factory.cs" />
+    <Compile Include="DynamiteEngine\Weapons\Factory\Player2_Factory.cs" />
+    <Compile Include="DynamiteEngine\Weapons\AbstractFactory\Weapon_AbstractFactory.cs" />
+    <Compile Include="DynamiteEngine\Weapons\Weapons.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
