@@ -47,14 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoGame.cs" />
-    <Compile Include="DynamiteEngine\Blocks\AbstractFactory\Block_AbstractFactory.cs" />
-    <Compile Include="DynamiteEngine\Blocks\AbstractProduct\DestroyableBlock.cs" />
-    <Compile Include="DynamiteEngine\Blocks\AbstractProduct\UndestroyableBlock.cs" />
-    <Compile Include="DynamiteEngine\Blocks\Blocks.cs" />
-    <Compile Include="DynamiteEngine\Blocks\Factory\Map_Factory.cs" />
-    <Compile Include="DynamiteEngine\Blocks\Product\destroyableBlockProduct\IceBlock.cs" />
-    <Compile Include="DynamiteEngine\Blocks\Product\destroyableBlockProduct\SandBlock.cs" />
-    <Compile Include="DynamiteEngine\Blocks\Product\undestroyableBlockProduct\TitaniumBlock.cs" />
+    <Compile Include="DynamiteEngine\Tiles\AbstractFactory\Block_AbstractFactory.cs" />
+    <Compile Include="DynamiteEngine\Tiles\AbstractProduct\DestroyableBlock.cs" />
+    <Compile Include="DynamiteEngine\Tiles\AbstractProduct\EmptyBlock.cs" />
+    <Compile Include="DynamiteEngine\Tiles\AbstractProduct\UndestroyableBlock.cs" />
+    <Compile Include="DynamiteEngine\Tiles\Client\Blocks_Client.cs" />
+    <Compile Include="DynamiteEngine\Tiles\ConcreteFactory\IceMapFactory.cs" />
+    <Compile Include="DynamiteEngine\Tiles\ConcreteFactory\LavaMapFactory.cs" />
+    <Compile Include="DynamiteEngine\Tiles\Product\destroyableBlockProduct\IceBlock.cs" />
+    <Compile Include="DynamiteEngine\Tiles\Product\destroyableBlockProduct\SandBlock.cs" />
+    <Compile Include="DynamiteEngine\Tiles\Product\emptyBlockProduct\NullBlock.cs" />
+    <Compile Include="DynamiteEngine\Tiles\Product\undestroyableBlockProduct\LavaBlock.cs" />
+    <Compile Include="DynamiteEngine\Tiles\Product\undestroyableBlockProduct\TitaniumBlock.cs" />
+    <Compile Include="DynamiteEngine\Map\Builder\MapBuilder.cs" />
+    <Compile Include="DynamiteEngine\Map\ConcreteBuilder\IceMapBuilder.cs" />
+    <Compile Include="DynamiteEngine\Map\ConcreteBuilder\LavaMapBuilder.cs" />
+    <Compile Include="DynamiteEngine\Map\Director\MapDirector.cs" />
+    <Compile Include="DynamiteEngine\Map\Product\MapProduct.cs" />
     <Compile Include="DynamiteEngine\Players\Character.cs" />
     <Compile Include="DynamiteEngine\DynamiteEngine.cs">
       <SubType>Form</SubType>
@@ -64,7 +73,6 @@
     <Compile Include="DynamiteEngine\Explosion.cs" />
     <Compile Include="DynamiteEngine\Players\Health.cs" />
     <Compile Include="DynamiteEngine\Log.cs" />
-    <Compile Include="DynamiteEngine\Map\Map.cs" />
     <Compile Include="DynamiteEngine\Players\Player.cs" />
     <Compile Include="DynamiteEngine\Shape2D.cs" />
     <Compile Include="DynamiteEngine\Sprite2D.cs" />
@@ -74,10 +82,10 @@
     <Compile Include="DynamiteEngine\Weapons\Product\MineProduct\land_mine.cs" />
     <Compile Include="DynamiteEngine\Weapons\AbstractProduct\Mine.cs" />
     <Compile Include="DynamiteEngine\Weapons\Product\BombProduct\pipe_bomb.cs" />
-    <Compile Include="DynamiteEngine\Weapons\Factory\Player1_Factory.cs" />
-    <Compile Include="DynamiteEngine\Weapons\Factory\Player2_Factory.cs" />
+    <Compile Include="DynamiteEngine\Weapons\ConcreteFactory\Player1_Factory.cs" />
+    <Compile Include="DynamiteEngine\Weapons\ConcreteFactory\Player2_Factory.cs" />
     <Compile Include="DynamiteEngine\Weapons\AbstractFactory\Weapon_AbstractFactory.cs" />
-    <Compile Include="DynamiteEngine\Weapons\Weapons.cs" />
+    <Compile Include="DynamiteEngine\Weapons\Client\Weapons.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

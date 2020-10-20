@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dynamite.DynamiteEngine.Blocks.AbstractProduct
+namespace Dynamite.DynamiteEngine.Tiles.AbstractProduct
 {
     abstract class UndestroyableBlock
     {

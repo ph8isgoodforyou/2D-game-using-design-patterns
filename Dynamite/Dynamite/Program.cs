@@ -1,6 +1,9 @@
-﻿using Dynamite.DynamiteEngine.Blocks;
-using Dynamite.DynamiteEngine.Blocks.AbstractFactory;
-using Dynamite.DynamiteEngine.Blocks.Factory;
+﻿using Dynamite.DynamiteEngine.Map.Builder;
+using Dynamite.DynamiteEngine.Map.ConcreteBuilder;
+using Dynamite.DynamiteEngine.Map.Director;
+using Dynamite.DynamiteEngine.Map.Product;
+using Dynamite.DynamiteEngine.Tiles.AbstractFactory;
+using Dynamite.DynamiteEngine.Tiles.ConcreteFactory;
 using Dynamite.DynamiteEngine.Weapons;
 using System;
 using System.Collections.Generic;
@@ -16,17 +19,12 @@ namespace Dynamite
         {
             //DemoGame game = new DemoGame();
 
-            Weapon_AbstractFactory p1 = new Player1_Factory();
-            int BombIndex = 3;
-            int MineIndex = 2;
-            Weapons w1 = new Weapons(p1, BombIndex, MineIndex);
-            w1.DetonateBomb();
-            w1.DetonateMine();
+            Block_AbstractFactory blockFactory = new IceMapFactory();
 
-            Block_AbstractFactory m = new Map_Factory();
-            Blocks b = new Blocks(m);
-            b.DestroyBlock();
-
+            MapDirector mapDirector = new MapDirector();
+            MapBuilder mapBuilder = new IceMapBuilder();
+            mapDirector.Construct(mapBuilder, blockFactory);
+            MapProduct map = mapBuilder.GetMap();
 
 
             Console.ReadKey();
