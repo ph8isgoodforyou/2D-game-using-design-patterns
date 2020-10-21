@@ -20,7 +20,7 @@ namespace Dynamite
         bool left, right, up, down;
 
         //Shape2D player;
-        Sprite2D player;
+        Sprite2D player1;
         Sprite2D player2;
 
         Block_AbstractFactory blockFactory;
@@ -43,7 +43,6 @@ namespace Dynamite
         //};
 
         public DemoGame() : base(new Vector2(677, 590), "Dynamite Demo") { }
-        //public DemoGame() : base(new Vector2(700, 800), "Dynamite Demo") { }
 
         /// <summary>
         /// Used for uploading everything for the game before rendering starts
@@ -93,25 +92,25 @@ namespace Dynamite
             if (PlacementOfPlayers % 7 == 0)
             {
                 // \
-                player = new Sprite2D(new Vector2(-4, -10), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+                player1 = new Sprite2D(new Vector2(-4, -10), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
                 player2 = new Sprite2D(new Vector2(610, -10), new Vector2(48, 64), "Player2", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
             }
             else if (PlacementOfPlayers % 9 == 0)
             {
                 // _
-                player = new Sprite2D(new Vector2(-4, -10), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+                player1 = new Sprite2D(new Vector2(-4, -10), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
                 player2 = new Sprite2D(new Vector2(-4, 480), new Vector2(48, 64), "Player2", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
             }
             else if (PlacementOfPlayers % 2 == 0)
             {
                 // |
-                player = new Sprite2D(new Vector2(-4, 480), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+                player1 = new Sprite2D(new Vector2(-4, 480), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
                 player2 = new Sprite2D(new Vector2(610, 480), new Vector2(48, 64), "Player2", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
             }
             else
             {
                 // --
-                player = new Sprite2D(new Vector2(-4, -10), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+                player1 = new Sprite2D(new Vector2(-4, -10), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
                 player2 = new Sprite2D(new Vector2(610, 480), new Vector2(48, 64), "Player2", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
             }
         }
@@ -127,19 +126,19 @@ namespace Dynamite
 
             if (up)
             {
-                player.Position.y -= 1f;
+                player1.Position.y -= 1f;
             }
             if (down)
             {
-                player.Position.y += 1f;
+                player1.Position.y += 1f;
             }
             if (left)
             {
-                player.Position.x -= 1f;
+                player1.Position.x -= 1f;
             }
             if (right)
             {
-                player.Position.x += 1f;
+                player1.Position.x += 1f;
             }
             //if(player.IsColliding(player, player2))
             //{

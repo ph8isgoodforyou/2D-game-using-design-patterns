@@ -6,26 +6,35 @@ using System.Threading.Tasks;
 
 namespace Dynamite.DynamiteEngine.Weapons
 {
-    class Weapons
+    class Weapon
     {
         private Bomb _bomb;
         private Mine _mine;
 
         // Constructor
 
-        public Weapons(Weapon_AbstractFactory factory, int BombIndex, int MineIndex)
+        public Weapon(Weapon_AbstractFactory factory, string weapontType, string weaponName, int i, int j)
         {
-            _bomb = factory.CreateBomb(BombIndex);
-            _mine = factory.CreateMine(MineIndex);
+            if (weapontType == "Bomb")
+            {
+                _bomb = factory.CreateBomb(weaponName, i, j);
+            }
+            else if (weapontType == "Mine")
+            {
+                _mine = factory.CreateMine(weaponName, i, j);
+            }
         }
 
-        public void DetonateBomb()
+        public void DetonateWeapon(string weapontType)
         {
-            _bomb.Explode();
-        }
-        public void DetonateMine()
-        {
-            _mine.Explode();
+            if (weapontType == "Bomb")
+            {
+                _bomb.Explode();
+            }
+            else if (weapontType == "Mine")
+            {
+                _mine.Explode();
+            }
         }
     }
 }

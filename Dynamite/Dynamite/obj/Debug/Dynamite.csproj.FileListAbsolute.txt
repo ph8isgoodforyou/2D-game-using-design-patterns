@@ -19,3 +19,6 @@ C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-p
 C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\obj\Debug\Dynamite.csproj.CoreCompileInputs.cache
 C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\obj\Debug\Dynamite.exe
 C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\obj\Debug\Dynamite.pdb
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\bin\Debug\System.ValueTuple.dll
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\bin\Debug\System.ValueTuple.xml
+C:\Users\ignsa\Desktop\Objektinis programų projektavimas\2D-game-using-design-paterns\Dynamite\Dynamite\obj\Debug\Dynamite.csproj.CopyComplete

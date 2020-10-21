@@ -37,6 +37,9 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,6 +50,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoGame.cs" />
+    <Compile Include="DynamiteEngine\Players\ConcreteCreator\HumanFemaleCharacterCreator.cs" />
+    <Compile Include="DynamiteEngine\Players\ConcreteCreator\HumanMaleCharacterCreator.cs" />
+    <Compile Include="DynamiteEngine\Players\ConcreteCreator\RobotCharacterCreator.cs" />
+    <Compile Include="DynamiteEngine\Players\ConcreteCreator\ZombieCharacterCreator.cs" />
+    <Compile Include="DynamiteEngine\Players\ConcreteProduct\HumanFemaleCharacter.cs" />
+    <Compile Include="DynamiteEngine\Players\ConcreteProduct\HumanMaleCharacter.cs" />
+    <Compile Include="DynamiteEngine\Players\ConcreteProduct\RobotCharacter.cs" />
+    <Compile Include="DynamiteEngine\Players\ConcreteProduct\ZombieCharacter.cs" />
+    <Compile Include="DynamiteEngine\Players\Creator\CharacterCreator.cs" />
+    <Compile Include="DynamiteEngine\Players\Product\Player.cs" />
     <Compile Include="DynamiteEngine\Tiles\AbstractFactory\Block_AbstractFactory.cs" />
     <Compile Include="DynamiteEngine\Tiles\AbstractProduct\DestroyableBlock.cs" />
     <Compile Include="DynamiteEngine\Tiles\AbstractProduct\EmptyBlock.cs" />
@@ -64,16 +77,13 @@
     <Compile Include="DynamiteEngine\Map\ConcreteBuilder\LavaMapBuilder.cs" />
     <Compile Include="DynamiteEngine\Map\Director\MapDirector.cs" />
     <Compile Include="DynamiteEngine\Map\Product\MapProduct.cs" />
-    <Compile Include="DynamiteEngine\Players\Character.cs" />
     <Compile Include="DynamiteEngine\DynamiteEngine.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DynamiteEngine\Weapons\AbstractProduct\Bomb.cs" />
     <Compile Include="DynamiteEngine\Weapons\Product\BombProduct\drop_bomb.cs" />
     <Compile Include="DynamiteEngine\Explosion.cs" />
-    <Compile Include="DynamiteEngine\Players\Health.cs" />
     <Compile Include="DynamiteEngine\Log.cs" />
-    <Compile Include="DynamiteEngine\Players\Player.cs" />
     <Compile Include="DynamiteEngine\Shape2D.cs" />
     <Compile Include="DynamiteEngine\Sprite2D.cs" />
     <Compile Include="DynamiteEngine\Vector2.cs" />
@@ -82,8 +92,7 @@
     <Compile Include="DynamiteEngine\Weapons\Product\MineProduct\land_mine.cs" />
     <Compile Include="DynamiteEngine\Weapons\AbstractProduct\Mine.cs" />
     <Compile Include="DynamiteEngine\Weapons\Product\BombProduct\pipe_bomb.cs" />
-    <Compile Include="DynamiteEngine\Weapons\ConcreteFactory\Player1_Factory.cs" />
-    <Compile Include="DynamiteEngine\Weapons\ConcreteFactory\Player2_Factory.cs" />
+    <Compile Include="DynamiteEngine\Weapons\ConcreteFactory\Player_Weapon_Factory.cs" />
     <Compile Include="DynamiteEngine\Weapons\AbstractFactory\Weapon_AbstractFactory.cs" />
     <Compile Include="DynamiteEngine\Weapons\Client\Weapons.cs" />
     <Compile Include="Program.cs" />
@@ -91,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DynamiteEngine\GameObserver\ConcreteObserver\" />
