@@ -22,8 +22,8 @@ namespace Dynamite.DynamiteEngine.Map.Director
         {
             string[,] Map = mapBuilder.GenerateNewMap();
             //mapBuilder.BuildEmptyPath(Map, factory);
-            mapBuilder.BuildUndestroyableBlocks(Map, factory);
             mapBuilder.BuildDestroyableBlocks(Map, factory);
+            mapBuilder.BuildUndestroyableBlocks(Map, factory);
         }
     }
 }

@@ -17,14 +17,37 @@ namespace Dynamite
     {
         static void Main(string[] args)
         {
-            //DemoGame game = new DemoGame();
+            DemoGame game = new DemoGame();
 
-            Block_AbstractFactory blockFactory = new IceMapFactory();
+            //Generating map and adding blocks
+            //----------------------------------------------------------
+            //Console.WriteLine("Choose game mode: \n 1. Ice Map \n 2. Lava Map \n Enter number according to the chosen map:");
+            //int GameMode = Convert.ToInt32(Console.ReadLine());
 
-            MapDirector mapDirector = new MapDirector();
-            MapBuilder mapBuilder = new IceMapBuilder();
-            mapDirector.Construct(mapBuilder, blockFactory);
-            MapProduct map = mapBuilder.GetMap();
+            //Block_AbstractFactory blockFactory;
+            //MapDirector mapDirector = new MapDirector();
+            //MapBuilder mapBuilder;
+            //MapProduct map;
+            //if (GameMode == 1)
+            //{
+            //    blockFactory = new IceMapFactory();
+            //    mapBuilder = new IceMapBuilder();
+            //    mapDirector.Construct(mapBuilder, blockFactory);
+            //    map = mapBuilder.GetMap();
+
+            //    map.PrintMap();
+            //}
+            //else if(GameMode == 2)
+            //{
+            //    blockFactory = new LavaMapFactory();
+            //    mapBuilder = new LavaMapBuilder();
+            //    mapDirector.Construct(mapBuilder, blockFactory);
+            //    map = mapBuilder.GetMap();
+
+            //    map.PrintMap();
+            //}
+
+            //---------------------------------------------------------
 
 
             Console.ReadKey();

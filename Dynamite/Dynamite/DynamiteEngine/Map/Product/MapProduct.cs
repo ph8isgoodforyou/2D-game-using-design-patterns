@@ -18,13 +18,17 @@ namespace Dynamite.DynamiteEngine.Map.Product
     class MapProduct
     {
         private string MapType;
-        private Blocks[,] blocks = new Blocks[10,12];
+        private Blocks[,] blocks = new Blocks[12,10];
+        public int rowLength;
+        public int colLength;
 
         // Constructor
 
         public MapProduct(string mapType)
         {
             this.MapType = mapType;
+            this.rowLength = blocks.GetLength(0);
+            this.colLength = blocks.GetLength(1);
         }
         public Blocks this[int i, int j]
         {
@@ -34,9 +38,9 @@ namespace Dynamite.DynamiteEngine.Map.Product
 
         public void PrintMap()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < rowLength; i++)
             {
-                for (int j = 0; j < 12; j++)
+                for (int j = 0; j < colLength; j++)
                 {
                     Console.Write(string.Format("{0} ", blocks[i, j]));
                 }

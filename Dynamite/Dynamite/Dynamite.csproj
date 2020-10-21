@@ -92,6 +92,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DynamiteEngine\GameObserver\ConcreteObserver\" />
+    <Folder Include="DynamiteEngine\GameObserver\ConcreteSubject\" />
+    <Folder Include="DynamiteEngine\GameObserver\Observer\" />
+    <Folder Include="DynamiteEngine\GameObserver\Subject\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

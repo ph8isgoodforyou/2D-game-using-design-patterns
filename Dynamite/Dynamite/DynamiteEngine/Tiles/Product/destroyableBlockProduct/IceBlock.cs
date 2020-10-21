@@ -15,6 +15,7 @@ namespace Dynamite.DynamiteEngine.Tiles.Product.destroyableBlockProduct
         {
             IceImg = new Sprite2D(new Vector2(i * 55, j * 55), new Vector2(55, 55), "Ice", "/Blocks/PNG/Tiles/platformPack_tile017");
         }
+
         public override void Destroy(Sprite2D IceImg)
         {
             IceImg.DestroySelf();

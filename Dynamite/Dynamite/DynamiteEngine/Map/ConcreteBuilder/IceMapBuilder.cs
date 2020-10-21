@@ -19,30 +19,34 @@ namespace Dynamite.DynamiteEngine.Map.ConcreteBuilder
         }
         public override string[,] GenerateNewMap()
         {
-            int UndestroyableBlockCount = 0;
             Random rnd = new Random();
-            string[,] Map = new string[10, 12];
+            string[,] Map = new string[12, 10];
 
             for (int i = 0; i < Map.GetLength(0); i++)
             {
                 for (int j = 0; j < Map.GetLength(1); j++)
                 {
-                        //Making sure all 4 corners have 3 empty blocks
-                    if (i == 0 && j == 0  || i == 0 && j == 1  || i == 1 && j == 0  || 
-                        i == 9 && j == 0  || i == 9 && j == 1  || i == 8 && j == 0  ||
-                        i == 0 && j == 10 || i == 0 && j == 11 || i == 1 && j == 11 ||
-                        i == 9 && j == 10 || i == 9 && j == 11 || i == 8 && j == 11 )
+                    //Making sure all 4 corners have 3 empty blocks
+                    if (i == 0 && j == 0 || i == 0 && j == 1 || i == 1 && j == 0 ||
+                        i == 0 && j == 9 || i == 1 && j == 9 || i == 0 && j == 8 ||
+                        i == 10 && j == 0 || i == 11 && j == 0 || i == 11 && j == 1 ||
+                        i == 10 && j == 9 || i == 11 && j == 9 || i == 11 && j == 8)
                     {
                         Map[i, j] = "E";
                     }
-                    else if (UndestroyableBlockCount < 10 && (rnd.Next(1, 100)) % 3 == 0)
+                    else if ((rnd.Next(1, 100)) % 2 != 0)
                     {
-                        UndestroyableBlockCount += 1;
-                        Map[i, j] = "U";
-                    }
-                    else if ((rnd.Next(1, 100000)) % 2 == 0)
-                    {
-                        Map[i, j] = "E";
+                        if (i > 0 && Map[i-1, j] != "U")
+                        {
+                            if (j == 0)
+                            {
+                                Map[i, j] = "U";
+                            }
+                            if (j > 1 && Map[i, j - 1] != "U" && Map[i, j - 2] != "U")
+                            {
+                                Map[i, j] = "U";
+                            }
+                        }
                     }
                     else 
                     {
@@ -51,7 +55,7 @@ namespace Dynamite.DynamiteEngine.Map.ConcreteBuilder
                     //Console.WriteLine(Map[i,j]);
                 }
             }
-            PrintMap(Map);
+            //PrintMap(Map);
             return Map;
         }
         public void PrintMap(string[,] Map)

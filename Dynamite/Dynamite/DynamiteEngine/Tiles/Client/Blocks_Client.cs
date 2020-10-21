@@ -32,6 +32,7 @@ namespace Dynamite.DynamiteEngine.Tiles.Client
             }
         }
 
+
         public void DestroyBlock(Sprite2D block)
         {
             _D_Block.Destroy(block);

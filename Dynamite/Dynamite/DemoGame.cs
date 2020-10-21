@@ -6,6 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using Dynamite.DynamiteEngine.Tiles.AbstractFactory;
+using Dynamite.DynamiteEngine.Tiles.ConcreteFactory;
+using Dynamite.DynamiteEngine.Map.Director;
+using Dynamite.DynamiteEngine.Map.Builder;
+using Dynamite.DynamiteEngine.Map.ConcreteBuilder;
+using Dynamite.DynamiteEngine.Map.Product;
 
 namespace Dynamite
 {
@@ -17,21 +23,27 @@ namespace Dynamite
         Sprite2D player;
         Sprite2D player2;
 
-        string[,] Map =
-        {
-            {"b","b","b","b","b","b","b","b","b","b","b","b"},
-            {"b",".",".","g","b","g","g","b","g",".",".","b"},
-            {"b",".","b","g","g","g","g","g","g","b",".","b"},
-            {"b","g","g","g","b","b","b","b","g","g","g","b"},
-            {"b","g","b","g","g","g","g","g","g","b","g","b"},
-            {"b","g","g","b","g","g","g","g","b","g","g","b"},
-            {"b","g","g","g","g","b","b","g","g","g","g","b"},
-            {"b",".","b","g","g","g","g","g","g","b",".","b"},
-            {"b",".",".","g","b","g","g","b","g",".",".","b"},
-            {"b","b","b","b","b","b","b","b","b","b","b","b"},
-        };
+        Block_AbstractFactory blockFactory;
+        MapDirector mapDirector = new MapDirector();
+        MapBuilder mapBuilder;
+        MapProduct map;
+
+        //string[,] Map =
+        //{
+        //    {"b","b","b","b","b","b","b","b","b","b","b","b"},
+        //    {"b",".",".","g","b","g","g","b","g",".",".","b"},
+        //    {"b",".","b","g","g","g","g","g","g","b",".","b"},
+        //    {"b","g","g","g","b","b","b","b","g","g","g","b"},
+        //    {"b","g","b","g","g","g","g","g","g","b","g","b"},
+        //    {"b","g","g","b","g","g","g","g","b","g","g","b"},
+        //    {"b","g","g","g","g","b","b","g","g","g","g","b"},
+        //    {"b",".","b","g","g","g","g","g","g","b",".","b"},
+        //    {"b",".",".","g","b","g","g","b","g",".",".","b"},
+        //    {"b","b","b","b","b","b","b","b","b","b","b","b"},
+        //};
 
         public DemoGame() : base(new Vector2(677, 590), "Dynamite Demo") { }
+        //public DemoGame() : base(new Vector2(700, 800), "Dynamite Demo") { }
 
         /// <summary>
         /// Used for uploading everything for the game before rendering starts
@@ -39,28 +51,69 @@ namespace Dynamite
         public override void OnLoad()
         {
             BackgroundColor = Color.BurlyWood;
-            //CameraPosition.x = 100;
-            //player = new Shape2D(new Vector2(10, 10), new Vector2(10, 10), "Test");
 
-            for (int i = 0; i < Map.GetLength(1); i++)
+            Console.WriteLine("Choose game mode: \n 1. Ice Map \n 2. Lava Map \n Enter number according to the chosen map:");
+            int GameMode = Convert.ToInt32(Console.ReadLine());
+
+            if (GameMode == 1)
             {
-                for (int j = 0; j < Map.GetLength(0); j++)
-                {
-                    if (Map[j, i] == "b")
-                    {
-                        new Sprite2D(new Vector2(i * 55, j * 55), new Vector2(55, 55), "Titanium", "/Blocks/PNG/Tiles/platformPack_tile041");
-                    }
-                    if (Map[j, i] == "g")
-                    {
-                        new Sprite2D(new Vector2(i * 55, j * 55), new Vector2(55, 55), "Ground", "/Blocks/PNG/Tiles/platformPack_tile004");
-                    }
-                }
+                blockFactory = new IceMapFactory();
+                mapBuilder = new IceMapBuilder();
+                mapDirector.Construct(mapBuilder, blockFactory);
+                //map = mapBuilder.GetMap();
+                //map.PrintMap();
+            }
+            else if (GameMode == 2)
+            {
+                blockFactory = new LavaMapFactory();
+                mapBuilder = new LavaMapBuilder();
+                mapDirector.Construct(mapBuilder, blockFactory);
+                //map = mapBuilder.GetMap();
+                //map.PrintMap();
             }
 
-            player = new Sprite2D(new Vector2(60, 43), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
-            player2 = new Sprite2D(new Vector2(550, 428), new Vector2(48, 64), "Player2", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+            //for (int i = 0; i < Map.GetLength(1); i++)
+            //{
+            //    for (int j = 0; j < Map.GetLength(0); j++)
+            //    {
+            //        if (Map[j, i] == "b")
+            //        {
+            //            new Sprite2D(new Vector2(i * 55, j * 55), new Vector2(55, 55), "Titanium", "/Blocks/PNG/Tiles/platformPack_tile041");
+            //        }
+            //        if (Map[j, i] == "g")
+            //        {
+            //            new Sprite2D(new Vector2(i * 55, j * 55), new Vector2(55, 55), "Ground", "/Blocks/PNG/Tiles/platformPack_tile004");
+            //        }
+            //    }
+            //}
 
+            Random rnd = new Random();
+            int PlacementOfPlayers = rnd.Next(1, 100);
 
+            if (PlacementOfPlayers % 7 == 0)
+            {
+                // \
+                player = new Sprite2D(new Vector2(-4, -10), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+                player2 = new Sprite2D(new Vector2(610, -10), new Vector2(48, 64), "Player2", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+            }
+            else if (PlacementOfPlayers % 9 == 0)
+            {
+                // _
+                player = new Sprite2D(new Vector2(-4, -10), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+                player2 = new Sprite2D(new Vector2(-4, 480), new Vector2(48, 64), "Player2", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+            }
+            else if (PlacementOfPlayers % 2 == 0)
+            {
+                // |
+                player = new Sprite2D(new Vector2(-4, 480), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+                player2 = new Sprite2D(new Vector2(610, 480), new Vector2(48, 64), "Player2", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+            }
+            else
+            {
+                // --
+                player = new Sprite2D(new Vector2(-4, -10), new Vector2(48, 64), "Player1", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+                player2 = new Sprite2D(new Vector2(610, 480), new Vector2(48, 64), "Player2", "/Characters/Zombie/PNG/Poses/character_zombie_walk1");
+            }
         }
         public override void OnDraw()
         {
