@@ -14,13 +14,11 @@ namespace Dynamite.DynamiteEngine.Players.ConcreteCreator
     {
         public override Player CreateAnonymousPlayer(MapProduct _map, int PositionX, int PositionY)
         {
-            //return new ZombieCharacter(PositionX, PositionY);
-            throw new NotImplementedException();
+            return new ZombieCharacter(_map, PositionX, PositionY);
         }
         public override Player CreatePlayer(string playerName, MapProduct _map, int PositionX, int PositionY)
         {
-            //return new ZombieCharacter();
-            throw new NotImplementedException();
+            return new ZombieCharacter(playerName, _map, PositionX, PositionY);
         }
     }
 }

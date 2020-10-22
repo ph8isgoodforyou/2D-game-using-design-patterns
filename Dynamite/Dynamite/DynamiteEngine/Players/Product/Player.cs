@@ -9,7 +9,7 @@ namespace Dynamite.DynamiteEngine.Players.Product
 {
     abstract class Player
     {
-        public abstract Vector2 DropBombAsync(Weapon_AbstractFactory factory, string weaponType, string weaponName, int i, int j);
+        public abstract Vector2 DropBomb(Weapon_AbstractFactory factory, string weaponType, string weaponName, int i, int j);
         public abstract Vector2 PlantMine(Weapon_AbstractFactory factory, string weaponType, string weaponName, int i, int j);
         public abstract Vector2 GetPlayersPosition();
         public abstract Vector2 IncreasePlayersPositionX(float push);

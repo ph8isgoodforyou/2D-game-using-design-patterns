@@ -35,36 +35,17 @@ namespace Dynamite.DynamiteEngine.Players.ConcreteProduct
                 playerName, "/Characters/Female person/PNG/Poses/character_femalePerson_walk1");
         }
 
-        public override Vector2 DropBombAsync(Weapon_AbstractFactory factory, string weaponType, string weaponName, int i, int j)
+        public override Vector2 DropBomb(Weapon_AbstractFactory factory, string weaponType, string weaponName, int i, int j)
         {
             Weapon Bomb = new Weapon(factory, weaponType, weaponName, i, j);
-            //TimeSpan interval1 = new TimeSpan(0, 0, 10);
-            //TimeSpan interval2 = new TimeSpan(0, 0, 5);
 
-            //Thread t = new Thread(delegate ()
-            //{
-            //    Bomb.DetonateWeapon("Bomb");
-            //});
-            //Thread.Sleep(interval1);
-            //t.Start();
-            //Thread.Sleep(interval2);
-            //t.Abort();
             Bomb.DetonateWeapon("Bomb");
             return Position;
         }
         public override Vector2 PlantMine(Weapon_AbstractFactory factory, string weaponType, string weaponName, int i, int j)
         {
             Weapon Mine = new Weapon(factory, weaponType, weaponName, i, j);
-            //TimeSpan interval1 = new TimeSpan(0, 0, 10);
-            //TimeSpan interval2 = new TimeSpan(0, 0, 5);
-            //Thread t = new Thread(delegate ()
-            //{
-            //    Mine.DetonateWeapon("Mine");
-            //});
-            //Thread.Sleep(interval1);
-            //t.Start();
-            //Thread.Sleep(interval2);
-            //t.Abort();
+
             Mine.DetonateWeapon("Mine");
             return Position;
         }

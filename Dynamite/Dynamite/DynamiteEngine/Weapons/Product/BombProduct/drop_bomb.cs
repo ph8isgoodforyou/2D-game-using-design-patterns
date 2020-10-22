@@ -17,6 +17,7 @@ namespace Dynamite.DynamiteEngine.Weapons
         }
         public override void Explode()
         {
+            drop_bomb_Img.DestroySelf();
             Console.WriteLine(this.GetType().Name + " Explodes ");
             Console.WriteLine("Damage: {0}", Damage);
         }
