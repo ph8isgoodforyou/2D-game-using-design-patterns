@@ -74,6 +74,7 @@ namespace Dynamite
                 mapBuilder = new LavaMapBuilder();
             }
             mapDirector.Construct(mapBuilder, blockFactory);
+            map = mapBuilder.GetMap();
 
             Random rnd = new Random();
             int PlacementOfPlayers = rnd.Next(1, 100);
@@ -118,38 +119,46 @@ namespace Dynamite
             {
                 if (PlacementOfPlayers % 7 == 0)
                 {
+                    //top
                     player1 = creators[0].CreatePlayer(Player1Name, map, -4, -10);
                 }
                 else if (PlacementOfPlayers % 9 == 0)
                 {
+                    //left
                     player1 = creators[0].CreatePlayer(Player1Name, map, -4, -10);
                 }
                 else if (PlacementOfPlayers % 2 == 0)
                 {
-                    player1 = creators[0].CreatePlayer(Player1Name, map, -4, 480);
+                    //right
+                    player1 = creators[0].CreatePlayer(Player1Name, map, 610, -10);
                 }
                 else
                 {
-                    player1 = creators[0].CreatePlayer(Player1Name, map, -4, -10);
+                    //bottom
+                    player1 = creators[0].CreatePlayer(Player1Name, map, 0, 480);
                 }
             }
             else
             {
                 if (PlacementOfPlayers % 7 == 0)
                 {
+                    //top
                     player1 = creators[0].CreateAnonymousPlayer(map, -4, -10);
                 }
                 else if (PlacementOfPlayers % 9 == 0)
                 {
+                    //left
                     player1 = creators[0].CreateAnonymousPlayer(map, -4, -10);
                 }
                 else if (PlacementOfPlayers % 2 == 0)
                 {
-                    player1 = creators[0].CreateAnonymousPlayer(map, -4, 480);
+                    //right
+                    player1 = creators[0].CreateAnonymousPlayer(map, 610, -10);
                 }
                 else
                 {
-                    player1 = creators[0].CreateAnonymousPlayer(map, -4, -10);
+                    //bottom
+                    player1 = creators[0].CreateAnonymousPlayer(map, 0, 480);
                 }
             }
 
@@ -157,18 +166,22 @@ namespace Dynamite
             {
                 if (PlacementOfPlayers % 7 == 0)
                 {
+                    //top
                     player2 = creators[1].CreatePlayer(Player2Name, map, 610, -10);
                 }
                 else if (PlacementOfPlayers % 9 == 0)
                 {
+                    //left
                     player2 = creators[1].CreatePlayer(Player2Name, map, -4, 480);
                 }
                 else if (PlacementOfPlayers % 2 == 0)
                 {
+                    //right
                     player2 = creators[1].CreatePlayer(Player2Name, map, 610, 480);
                 }
                 else
                 {
+                    //bottom
                     player2 = creators[1].CreatePlayer(Player2Name, map, 610, 480);
                 }
             }
@@ -176,18 +189,22 @@ namespace Dynamite
             {
                 if (PlacementOfPlayers % 7 == 0)
                 {
-                    player2 = creators[1].CreateAnonymousPlayer(map, -610, -10);
+                    //top
+                    player2 = creators[1].CreateAnonymousPlayer(map, 610, -10);
                 }
                 else if (PlacementOfPlayers % 9 == 0)
                 {
+                    //left
                     player2 = creators[1].CreateAnonymousPlayer(map, -4, 480);
                 }
                 else if (PlacementOfPlayers % 2 == 0)
                 {
+                    //right
                     player2 = creators[1].CreateAnonymousPlayer(map, 610, 480);
                 }
                 else
                 {
+                    //bottom
                     player2 = creators[1].CreateAnonymousPlayer(map, 610, 480);
                 }
             }
