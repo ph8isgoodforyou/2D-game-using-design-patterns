@@ -1,4 +1,4 @@
-# 2D-game-using-design-paterns
+# 2D-game-using-design-patterns
 
 Branches are created:
 ErikasBranch
