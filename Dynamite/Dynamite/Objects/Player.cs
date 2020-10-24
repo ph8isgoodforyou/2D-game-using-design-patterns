@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Dynamite.Command;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Dynamite
 {
@@ -16,6 +18,12 @@ namespace Dynamite
         private bool _Dead = false;
         private byte _BombNumb = 2;
         private byte _Lifes = 1;
+        public World world;
+        public Player otherPlayer;
+        public Game game;
+
+        public List<CommandClass> _commands = new List<CommandClass>();
+        int _current = 0;
 
         //Player can have 2 bonus at the same time
         public BonusType[] BonusSlot = new BonusType[2];
@@ -142,7 +150,33 @@ namespace Dynamite
 
         }
 
-
+        public void Operation(char operation)
+        {
+            switch (operation)
+            {
+                case 'U':
+                    this.Orientation = Player.MovementDirection.UP;
+                    break;
+                case 'D':
+                    this.Orientation = Player.MovementDirection.DOWN;
+                    break;
+                case 'L':
+                    this.Orientation = Player.MovementDirection.LEFT;
+                    break;
+                case 'R':
+                    this.Orientation = Player.MovementDirection.RIGHT;
+                    break;
+                case 'S':
+                    this.DropBomb(world.MapGrid, game.BombsOnTheMap, otherPlayer);
+                    break;
+                case 'C':
+                    this.Deactivate(this.world.MapGrid, game.BombsOnTheMap, otherPlayer);
+                    break;
+                case 'E':
+                    game.Pause();
+                    break;
+            }
+        }
         public void MoveUp()
         {
             base.Move(0, -Speed);
@@ -372,6 +406,18 @@ namespace Dynamite
 
 
 
+        }
+
+        internal void Command(Keys key)
+        {
+            CommandClass command = new PlayerCommand(
+        this, key);
+            command.Execute();
+
+            // Add command to undo list
+
+            _commands.Add(command);
+            _current++;
         }
 
 

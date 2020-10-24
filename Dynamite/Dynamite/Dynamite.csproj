@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="Command\Command.cs" />
+    <Compile Include="Command\PlayerCommand.cs" />
     <Compile Include="DemoGame.cs" />
     <Compile Include="DynamiteEngine\DynamiteEngine.cs">
       <SubType>Form</SubType>

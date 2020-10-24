@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamite", "Dynamite\Dynamite.csproj", "{FA2FEC3B-8138-4DF5-A335-44BAB47E7522}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRTest", "SignalRTest\SignalRTest.csproj", "{56F1F3FF-60EF-44FA-B9AE-6A607CD4CC91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRTest", "SignalRTest\SignalRTest.csproj", "{56F1F3FF-60EF-44FA-B9AE-6A607CD4CC91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{65100A9D-C837-489F-B1C9-37D8708C9341}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{56F1F3FF-60EF-44FA-B9AE-6A607CD4CC91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56F1F3FF-60EF-44FA-B9AE-6A607CD4CC91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56F1F3FF-60EF-44FA-B9AE-6A607CD4CC91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65100A9D-C837-489F-B1C9-37D8708C9341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65100A9D-C837-489F-B1C9-37D8708C9341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65100A9D-C837-489F-B1C9-37D8708C9341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65100A9D-C837-489F-B1C9-37D8708C9341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dynamite.Command;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -237,31 +238,35 @@ namespace Dynamite
                 default:
                     break;
             }
-
-            switch (key)
-            {
-                case Keys.Up:
-                    sender.Orientation = Player.MovementDirection.UP;
-                    break;
-                case Keys.Down:
-                    sender.Orientation = Player.MovementDirection.DOWN;
-                    break;
-                case Keys.Left:
-                    sender.Orientation = Player.MovementDirection.LEFT;
-                    break;
-                case Keys.Right:
-                    sender.Orientation = Player.MovementDirection.RIGHT;
-                    break;
-                case Keys.Space:
-                    sender.DropBomb(this.world.MapGrid, this.BombsOnTheMap, otherPlayer);
-                    break;
-                case Keys.ControlKey:
-                    sender.Deactivate(this.world.MapGrid, BombsOnTheMap, otherPlayer);
-                    break;
-                case Keys.Escape:
-                    Pause();
-                    break;
-            }
+            sender.world = this.world;
+            sender.game = this;
+            sender.otherPlayer = otherPlayer;
+            otherPlayer.game = this;
+            sender.Command(key);
+            //switch (key)
+            //{
+            //    case Keys.Up:
+            //        sender.Orientation = Player.MovementDirection.UP;
+            //        break;
+            //    case Keys.Down:
+            //        sender.Orientation = Player.MovementDirection.DOWN;
+            //        break;
+            //    case Keys.Left:
+            //        sender.Orientation = Player.MovementDirection.LEFT;
+            //        break;
+            //    case Keys.Right:
+            //        sender.Orientation = Player.MovementDirection.RIGHT;
+            //        break;
+            //    case Keys.Space:
+            //        sender.DropBomb(this.world.MapGrid, this.BombsOnTheMap, otherPlayer);
+            //        break;
+            //    case Keys.ControlKey:
+            //        sender.Deactivate(this.world.MapGrid, BombsOnTheMap, otherPlayer);
+            //        break;
+            //    case Keys.Escape:
+            //        Pause();
+            //        break;
+            //}
         }
 
         //Manage release of key for server side
