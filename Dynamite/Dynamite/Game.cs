@@ -1,4 +1,5 @@
 ﻿using Dynamite.Command;
+using Dynamite.Facade;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -411,7 +412,7 @@ namespace Dynamite
             }
         }
 
-        private void BonusLogic(Player player)
+        public void BonusLogic(Player player)
         {
             int freeSlot = -1;
             for (int i = 0; i < player.BonusSlot.Length; i++)
@@ -476,34 +477,36 @@ namespace Dynamite
 
         private void PlayersLogic()
         {
-            player1.LocationCheck(48, 48);
-            player2.LocationCheck(48, 48);
+            FacadeClass facade = new FacadeClass(player1, player2, this, world);
+            facade.PlayerLogic();
+            //player1.LocationCheck(48, 48);
+            //player2.LocationCheck(48, 48);
 
-            BonusLogic(player1);
-            BonusLogic(player2);
+            //BonusLogic(player1);
+            //BonusLogic(player2);
 
-            if (player1.Orientation != Player.MovementDirection.NONE)
-            {
-                if (CheckCollisionPlayer(player1, player2, world.MapGrid, player1.Orientation))
-                {
-                    player1.Move();
+            //if (player1.Orientation != Player.MovementDirection.NONE)
+            //{
+            //    if (CheckCollisionPlayer(player1, player2, world.MapGrid, player1.Orientation))
+            //    {
+            //        player1.Move();
 
-                }
-                player1.UpdateFrame((int)LogicTimer.Interval);
-            }
-            else
-                player1.frameindex = 1;
+            //    }
+            //    player1.UpdateFrame((int)LogicTimer.Interval);
+            //}
+            //else
+            //    player1.frameindex = 1;
 
-            if (player2.Orientation != Player.MovementDirection.NONE)
-            {
-                if (CheckCollisionPlayer(player2, player1, world.MapGrid, player2.Orientation))
-                {
-                    player2.Move();
-                }
-                player2.UpdateFrame((int)LogicTimer.Interval);
-            }
-            else
-                player2.frameindex = 1;
+            //if (player2.Orientation != Player.MovementDirection.NONE)
+            //{
+            //    if (CheckCollisionPlayer(player2, player1, world.MapGrid, player2.Orientation))
+            //    {
+            //        player2.Move();
+            //    }
+            //    player2.UpdateFrame((int)LogicTimer.Interval);
+            //}
+            //else
+            //    player2.frameindex = 1;
         }
         //Collision management
 

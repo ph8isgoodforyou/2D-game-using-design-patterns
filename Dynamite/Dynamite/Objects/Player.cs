@@ -25,6 +25,34 @@ namespace Dynamite
         public List<CommandClass> _commands = new List<CommandClass>();
         int _current = 0;
 
+        internal void DrawSelf()
+        {
+            if (!Dead)
+            {
+                switch (Orientation)
+                {
+                    case Player.MovementDirection.UP:
+                        LoadSprite(Properties.Resources.AT_UP);
+                        break;
+                    case Player.MovementDirection.DOWN:
+                        LoadSprite(Properties.Resources.AT_DOWN);
+                        break;
+                    case Player.MovementDirection.LEFT:
+                        LoadSprite(Properties.Resources.AT_LEFT);
+                        break;
+                    case Player.MovementDirection.RIGHT:
+                        LoadSprite(Properties.Resources.AT_RIGHT);
+                        break;
+                    case Player.MovementDirection.NONE:
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+                LoadSprite(Properties.Resources.Blood);
+        }
+
         //Player can have 2 bonus at the same time
         public BonusType[] BonusSlot = new BonusType[2];
         public short[] BonusTimer = new short[2];

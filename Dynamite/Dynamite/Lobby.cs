@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dynamite.Facade;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -69,7 +70,7 @@ namespace Dynamite
             catch (Exception ex)
             {
 
-                MessageBox.Show("Erreur : " + ex.Message, "Problème", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Error : " + ex.Message, "Problem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
 
@@ -505,66 +506,8 @@ namespace Dynamite
 
         public void Draw()
         {
-
-            if (!game.player1.Dead)
-            {
-                switch (game.player1.Orientation)
-                {
-                    case Player.MovementDirection.UP:
-                        game.player1.LoadSprite(Properties.Resources.AT_UP);
-                        break;
-                    case Player.MovementDirection.DOWN:
-                        game.player1.LoadSprite(Properties.Resources.AT_DOWN);
-                        break;
-                    case Player.MovementDirection.LEFT:
-                        game.player1.LoadSprite(Properties.Resources.AT_LEFT);
-                        break;
-                    case Player.MovementDirection.RIGHT:
-                        game.player1.LoadSprite(Properties.Resources.AT_RIGHT);
-                        break;
-                    case Player.MovementDirection.NONE:
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else
-                game.player1.LoadSprite(Properties.Resources.Blood);
-
-            if (!game.player2.Dead)
-            {
-                switch (game.player2.Orientation)
-                {
-                    case Player.MovementDirection.UP:
-                        game.player2.LoadSprite(Properties.Resources.T_UP);
-                        break;
-                    case Player.MovementDirection.DOWN:
-                        game.player2.LoadSprite(Properties.Resources.T_DOWN);
-                        break;
-                    case Player.MovementDirection.LEFT:
-                        game.player2.LoadSprite(Properties.Resources.T_LEFT);
-                        break;
-                    case Player.MovementDirection.RIGHT:
-                        game.player2.LoadSprite(Properties.Resources.T_RIGHT);
-                        break;
-                    case Player.MovementDirection.NONE:
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else
-                game.player2.LoadSprite(Properties.Resources.Blood);
-
-            gr.Clear(pbGame.BackColor);
-
-            game.world.Draw(gr);
-
-            game.player1.Draw(gr);
-            game.player1.DrawPosition(gr);
-
-            game.player2.Draw(gr);
-            game.player2.DrawPosition(gr);
+            FacadeClass facade = new FacadeClass (game.player1, game.player2, gr, game.world, pbGame);
+            facade.DrawStuff();
 
             foreach (Weapon bomb in game.BombsOnTheMap)
             {

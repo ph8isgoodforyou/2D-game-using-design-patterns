@@ -60,6 +60,7 @@
     <Compile Include="DynamiteEngine\Shape2D.cs" />
     <Compile Include="DynamiteEngine\Sprite2D.cs" />
     <Compile Include="DynamiteEngine\Vector2.cs" />
+    <Compile Include="Facade\Facade.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="GameWindow.cs">
@@ -84,6 +85,7 @@
     <Compile Include="Objects\Bonus.cs" />
     <Compile Include="Objects\GameObject.cs" />
     <Compile Include="Objects\Player.cs" />
+    <Compile Include="Observer\Observer.cs" />
     <Compile Include="Packet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
