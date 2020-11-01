@@ -20,7 +20,6 @@ namespace Dynamite.Facade
         {
             player1 = p1;
             player2 = p2;
-            this.gr = gr;
             this.world = world;
             this.pbGame = pbGame;
         }

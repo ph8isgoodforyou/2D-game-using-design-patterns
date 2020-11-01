@@ -49,9 +49,6 @@ namespace Dynamite
         public Lobby()
         {
             InitializeComponent();
-
-
-
         }
 
         private void btnServer_Click(object sender, EventArgs e)
