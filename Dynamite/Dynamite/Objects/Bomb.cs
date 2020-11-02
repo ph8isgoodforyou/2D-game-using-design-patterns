@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dynamite.Observer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace Dynamite
 {
     [Serializable]
-    public class Weapon : GameObject, IDisposable
+    public class Weapon : Subject, IDisposable
     {
 
         private int _DetonationTime = 2000;

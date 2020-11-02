@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace Dynamite.Observer
 {
-    public abstract class Subject
+    public abstract class Subject : GameObject
     {
         private List<ObserverClass> _observers = new List<ObserverClass>();
+
+        public Subject(int x, int y, int totalFrames, int frameWidth, int frameHeight)
+            : base(x, y, totalFrames, frameWidth, frameHeight)
+        {
+
+        }
+
 
         public void Attach(ObserverClass observer)
         {
@@ -30,57 +37,61 @@ namespace Dynamite.Observer
     }
 
 
-    public class ConcreteSubject : Subject
+    //public class ConcreteSubject : Subject
+
+    //{
+    //    private string _subjectState;
+
+    //    // Gets or sets subject state
+
+    //    public string SubjectState
+    //    {
+    //        get { return _subjectState; }
+    //        set { _subjectState = value; }
+    //    }
+    //}
+
+
+    public abstract class ObserverClass : GameObject
 
     {
-        private string _subjectState;
-
-        // Gets or sets subject state
-
-        public string SubjectState
+        public ObserverClass(int x, int y, int totalFrames, int frameWidth, int frameHeight, int frameTime) : base(x, y, totalFrames, frameWidth, frameHeight, frameTime)
         {
-            get { return _subjectState; }
-            set { _subjectState = value; }
+
         }
-    }
-
-
-    public abstract class ObserverClass
-
-    {
         public abstract void Update();
     }
 
 
-    public class ConcreteObserver : ObserverClass
+    //public class ConcreteObserver : ObserverClass
 
-    {
-        private string _name;
-        private string _observerState;
-        private ConcreteSubject _subject;
+    //{
+    //    private string _name;
+    //    private string _observerState;
+    //    private ConcreteSubject _subject;
 
-        // Constructor
+    //    // Constructor
 
-        public ConcreteObserver(
-          ConcreteSubject subject, string name)
-        {
-            this._subject = subject;
-            this._name = name;
-        }
+    //    public ConcreteObserver(
+    //      ConcreteSubject subject, string name)
+    //    {
+    //        this._subject = subject;
+    //        this._name = name;
+    //    }
 
-        public override void Update()
-        {
-            _observerState = _subject.SubjectState;
-            Console.WriteLine("Observer {0}'s new state is {1}",
-              _name, _observerState);
-        }
+    //    public override void Update()
+    //    {
+    //        _observerState = _subject.SubjectState;
+    //        Console.WriteLine("Observer {0}'s new state is {1}",
+    //          _name, _observerState);
+    //    }
 
-        // Gets or sets subject
+    //    // Gets or sets subject
 
-        public ConcreteSubject Subject
-        {
-            get { return _subject; }
-            set { _subject = value; }
-        }
-    }
+    //    public ConcreteSubject Subject
+    //    {
+    //        get { return _subject; }
+    //        set { _subject = value; }
+    //    }
+    //}
 }

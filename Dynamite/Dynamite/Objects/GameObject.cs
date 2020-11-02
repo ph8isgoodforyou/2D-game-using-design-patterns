@@ -80,7 +80,6 @@ namespace Dynamite
         { }
 
         public GameObject(int x, int y, int totalFrames, int frameWidth, int frameHeight)
-
         {
             _totalFrames = totalFrames;
             CasePosition = new int[2] { 0, 0 };
@@ -89,7 +88,6 @@ namespace Dynamite
         }
 
         public GameObject(int x, int y, int totalFrames, int frameWidth, int frameHeight, int frameTime)
-
         {
             _totalFrames = totalFrames;
             CasePosition = new int[2] { 0, 0 };
