@@ -1,5 +1,4 @@
-﻿using Dynamite.Observer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,8 +17,6 @@ namespace Dynamite
         TcpClient sender;
         IFormatter formatter;
         NetworkStream stream;
-        private string _observerState;
-        private ConcreteSubject _subject;
 
         public Client(string endPointIP, int endPointPort)
         {
@@ -42,6 +39,7 @@ namespace Dynamite
             }
             catch (Exception) { }
         }
+
         public void sendData(Packet obj)
         {
             try

@@ -38,9 +38,9 @@ namespace Dynamite
         }
 
         //ctor when loading a game
-        public Game(int worldWidth, int worldHeight, SaveGameData save)
+        public Game(int hebergeurWidth, int hebergeurHeight, SaveGameData save)
         {
-            this.world = new World(worldWidth, worldHeight, save.MapGrid);
+            this.world = new World(hebergeurWidth, hebergeurHeight, save.MapGrid);
 
             player1 = save.player1;
             player2 = save.player2;

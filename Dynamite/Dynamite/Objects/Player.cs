@@ -1,4 +1,5 @@
 ﻿using Dynamite.Command;
+using Dynamite.Observer;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 namespace Dynamite
 {
     [Serializable]
-    public class Player : GameObject
+    public class Player : GameObject, IObserver
     {
         byte PlayerNumero;
         public string Name = "Player";
@@ -262,7 +263,10 @@ namespace Dynamite
             {
                 if (!MapGrid[this.CasePosition[0], this.CasePosition[1]].Occupied)
                 {
-                    BombsOnTheMap.Add(new Weapon(this.CasePosition[0], this.CasePosition[1], 8, 48, 48, 2000, 48, 48, this.PlayerNumero));
+                    var NewBomb = new Weapon(this.CasePosition[0], this.CasePosition[1], 8, 48, 48, 2000, 48, 48, this.PlayerNumero);
+                    NewBomb.Attach(this);
+                    NewBomb.Attach(otherplayer);
+                    BombsOnTheMap.Add(NewBomb);
                     //Case obtain a reference to the bomb dropped on
                     MapGrid[this.CasePosition[0], this.CasePosition[1]].bomb = BombsOnTheMap[BombsOnTheMap.Count - 1];
                     MapGrid[this.CasePosition[0], this.CasePosition[1]].Occupied = true;
@@ -451,5 +455,10 @@ namespace Dynamite
 
         #endregion
 
+        public void Update()
+        {
+            //Winner = !Dead;
+            Console.WriteLine("Did I win? " + (!Dead).ToString());
+        }
     }
 }

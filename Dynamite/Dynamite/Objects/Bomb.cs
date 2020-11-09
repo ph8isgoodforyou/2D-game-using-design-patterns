@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Dynamite
 {
     [Serializable]
-    public class Weapon : Subject, IDisposable
+    public class Weapon : GameObject, IDisposable, ISubject
     {
 
         private int _DetonationTime = 2000;
@@ -17,7 +17,24 @@ namespace Dynamite
 
         //Who drops the bomb, player 1 = 1, player 2 = 2
         public short Proprietary;
+        private List<IObserver> _observers;
+        public void Attach(IObserver observer)
+        {
+            //_observers.Add(observer);
+        }
 
+        public void Detach(IObserver observer)
+        {
+            //_observers.Remove(observer);
+        }
+
+        public void Notify()
+        {
+            foreach (IObserver o in _observers)
+            {
+                o.Update();
+            }
+        }
         #region Accessors
 
 
@@ -48,7 +65,7 @@ namespace Dynamite
             : base(caseCol * TileWidth, caseLigne * TileHeight, totalFrames, frameWidth, frameHeight)
         {
             CasePosition = new int[2] { caseLigne, caseCol };
-
+            _observers = new List<IObserver>();
             //Charge the sprite
             this.LoadSprite(Properties.Resources.Bombe);
             //Define the proprietary player (who drops this bomb)
@@ -102,12 +119,14 @@ namespace Dynamite
                 && player1.BonusSlot[0] != BonusType.Armor && player1.BonusSlot[1] != BonusType.Armor)
             {
                 player1.Dead = true;
+                Notify();
                 player1.LoadSprite(Properties.Resources.Blood);
             }
             if (this.CasePosition == player2.CasePosition
                 && player2.BonusSlot[0] != BonusType.Armor && player2.BonusSlot[1] != BonusType.Armor)
             {
                 player2.Dead = true;
+                Notify();
                 player2.LoadSprite(Properties.Resources.Blood);
             }
 

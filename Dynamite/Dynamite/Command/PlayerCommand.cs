@@ -17,10 +17,10 @@ namespace Dynamite.Command
             set { _operator = value; }
         }
 
-        public PlayerCommand(Player _player,
+        public PlayerCommand(Player calculator,
       Keys @operator)
         {
-            this._player = _player;
+            this._player = calculator;
             this._operator = @operator;
         }
 
@@ -77,15 +77,15 @@ namespace Dynamite.Command
                 case Keys.Right:
                     op = 'L';
                     break;
-                   
+                    //S to P
                 case Keys.Space:
                     op = 'C';
                     break;
-                   
+                    //C to V
                 case Keys.ControlKey:
                     op = 'S';
                     break;
-                    
+                    //E to R
                 case Keys.Escape:
                     op = 'E';
                     break;
