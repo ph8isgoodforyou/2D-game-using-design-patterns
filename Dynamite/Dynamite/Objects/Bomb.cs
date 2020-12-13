@@ -14,6 +14,7 @@ namespace Dynamite
         private int _DetonationTime = 2000;
         public bool Explosing = false;
         private int bombPower = 3;
+        public BombType type;
 
         //Who drops the bomb, player 1 = 1, player 2 = 2
         public short Proprietary;
@@ -30,9 +31,9 @@ namespace Dynamite
 
         public void Notify()
         {
-            foreach (IObserver o in _observers)
+            foreach (Player o in _observers)
             {
-                o.Update();
+                o.Update(this.type);
             }
         }
         #region Accessors
@@ -315,5 +316,11 @@ namespace Dynamite
 
 
 
+    }
+    public enum BombType
+    {
+        Fire,
+        Ice,
+        Psychic
     }
 }

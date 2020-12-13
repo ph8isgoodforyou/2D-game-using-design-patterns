@@ -1,5 +1,7 @@
-﻿using Dynamite.Command;
+﻿using Dynamite.Chain_of_resp;
+using Dynamite.Command;
 using Dynamite.Observer;
+using Dynamite.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -22,6 +24,13 @@ namespace Dynamite
         public World world;
         public Player otherPlayer;
         public Game game;
+
+        internal void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        bool Winner = false;
 
         public List<CommandClass> _commands = new List<CommandClass>();
         int _current = 0;
@@ -264,6 +273,7 @@ namespace Dynamite
                 if (!MapGrid[this.CasePosition[0], this.CasePosition[1]].Occupied)
                 {
                     var NewBomb = new Weapon(this.CasePosition[0], this.CasePosition[1], 8, 48, 48, 2000, 48, 48, this.PlayerNumero);
+                    NewBomb.type = BombType.Fire;
                     NewBomb.Attach(this);
                     NewBomb.Attach(otherplayer);
                     BombsOnTheMap.Add(NewBomb);
@@ -455,10 +465,23 @@ namespace Dynamite
 
         #endregion
 
+        public void  Update(BombType bt)
+        {
+            Handler Fire = new FireHandler();
+            Handler Ice = new IceHandler();
+            Handler Psychic = new PsychicHandler();
+            Handler Undefined = new UndefinedHandler();
+            Fire.SetSuccessor(Ice);
+            Ice.SetSuccessor(Psychic);
+            Psychic.SetSuccessor(Undefined);
+            Fire.HandleRequest(bt);
+            Winner = !Dead;
+
+            Console.WriteLine("Did I win? " + Winner.ToString());
+        }
         public void Update()
         {
-            //Winner = !Dead;
-            Console.WriteLine("Did I win? " + (!Dead).ToString());
+
         }
     }
 }

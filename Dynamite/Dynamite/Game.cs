@@ -1,5 +1,6 @@
 ﻿using Dynamite.Command;
 using Dynamite.Facade;
+using Dynamite.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -20,6 +21,7 @@ namespace Dynamite
 
         public World world;
         public Player player1, player2;
+        public PlayerCollection pcs;
 
         public List<Weapon> BombsOnTheMap;
         public System.Timers.Timer LogicTimer;
@@ -31,7 +33,10 @@ namespace Dynamite
 
             player1 = new Player(1, 2, 33, 33, 1, 1, 48, 48, 80, 1);
             player2 = new Player(1, 2, 33, 33, this.world.MapGrid.GetLength(0) - 2, this.world.MapGrid.GetLength(0) - 2, 48, 48, 80, 2);
-
+            pcs.Attach(player1);
+            pcs.Attach(player2);
+            //life up
+            pcs.Accept(new LifeGainVisitor());
             this.BombsOnTheMap = new List<Weapon>();
             this.LogicTimer = new System.Timers.Timer(40);
             this.LogicTimer.Elapsed += LogicTimer_Elapsed;
@@ -44,7 +49,7 @@ namespace Dynamite
 
             player1 = save.player1;
             player2 = save.player2;
-
+            
             this.BombsOnTheMap = save.bombsOnTheMap;
             this.LogicTimer = new System.Timers.Timer(40);
             this.LogicTimer.Elapsed += LogicTimer_Elapsed;

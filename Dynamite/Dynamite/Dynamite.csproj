@@ -49,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chain of resp\FireHandler.cs" />
+    <Compile Include="Chain of resp\Handler.cs" />
+    <Compile Include="Chain of resp\IceHandler.cs" />
+    <Compile Include="Chain of resp\PsychicHandler.cs" />
+    <Compile Include="Chain of resp\UndefinedHandler.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Command\Command.cs" />
     <Compile Include="Command\PlayerCommand.cs" />
@@ -96,6 +101,11 @@
     </Compile>
     <Compile Include="SaveGameData.cs" />
     <Compile Include="Server.cs" />
+    <Compile Include="Visitor\PlayerCollection.cs" />
+    <Compile Include="Visitor\LifeGainVisitor.cs" />
+    <Compile Include="Visitor\SlowVisitor.cs" />
+    <Compile Include="Visitor\SpeedVisitor.cs" />
+    <Compile Include="Visitor\Visitor.cs" />
     <Compile Include="World\Tile.cs" />
     <Compile Include="World\World.cs" />
   </ItemGroup>
@@ -171,5 +181,6 @@
   <ItemGroup>
     <None Include="Resources\World.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
