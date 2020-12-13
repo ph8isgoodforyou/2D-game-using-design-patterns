@@ -25,6 +25,7 @@ namespace Dynamite
 
         protected int _totalElapsedTime = 0;
 
+
         //Number of animation frames
         protected int _totalFrames;
 

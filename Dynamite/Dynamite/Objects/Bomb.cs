@@ -1,4 +1,5 @@
-﻿using Dynamite.Observer;
+﻿using Dynamite.Mediator;
+using Dynamite.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Dynamite
         public bool Explosing = false;
         private int bombPower = 3;
         public BombType type;
-
+        public GameMediator Mediator;
         //Who drops the bomb, player 1 = 1, player 2 = 2
         public short Proprietary;
         private List<IObserver> _observers;
@@ -90,7 +91,7 @@ namespace Dynamite
         public void Explosion(Tile[,] MapGrid, Player player1, Player player2)
         {
             int variablePosition = 0;
-
+            Mediator.Notify("blow", this);
             bool PropagationUP, PropagationDOWN, PropagationLEFT, PropagationRIGHT;
             PropagationUP = PropagationDOWN = PropagationLEFT = PropagationRIGHT = true;
 

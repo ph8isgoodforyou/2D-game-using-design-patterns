@@ -47,23 +47,23 @@ namespace Dynamite
 
             if (num == 0)
             {
-                this.BonusHere = new Bonus(this.Source.X, this.Source.Y, 1, this.Source.Width, this.Source.Height, BonusType.PowerBomb);
+                this.BonusHere = new Bonus(this.Source.X, this.Source.Y, 1, this.Source.Width, this.Source.Height, BonusType.PowerBomb, null);
                 this.BonusHere.LoadSprite(Properties.Resources.SuperBomb);
             }
             else if (num == 1)
             {
-                this.BonusHere = new Bonus(this.Source.X, this.Source.Y, 1, this.Source.Width, this.Source.Height, BonusType.SpeedBoost);
+                this.BonusHere = new Bonus(this.Source.X, this.Source.Y, 1, this.Source.Width, this.Source.Height, BonusType.SpeedBoost, null);
                 this.BonusHere.LoadSprite(Properties.Resources.SpeedUp);
             }
             else if (num == 2)
             {
-                this.BonusHere = new Bonus(this.Source.X, this.Source.Y, 1, this.Source.Width, this.Source.Height, BonusType.Desamorce);
+                this.BonusHere = new Bonus(this.Source.X, this.Source.Y, 1, this.Source.Width, this.Source.Height, BonusType.Desamorce, null);
                 this.BonusHere.LoadSprite(Properties.Resources.Deactivate);
             }
 
             else if (num == 3)
             {
-                this.BonusHere = new Bonus(this.Source.X, this.Source.Y, 1, this.Source.Width, this.Source.Height, BonusType.Armor);
+                this.BonusHere = new Bonus(this.Source.X, this.Source.Y, 1, this.Source.Width, this.Source.Height, BonusType.Armor, null);
                 this.BonusHere.LoadSprite(Properties.Resources.Armor);
             }
 

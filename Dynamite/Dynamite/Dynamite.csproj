@@ -86,6 +86,7 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mediator\GameMediator.cs" />
     <Compile Include="Objects\Bomb.cs" />
     <Compile Include="Objects\Bonus.cs" />
     <Compile Include="Objects\GameObject.cs" />

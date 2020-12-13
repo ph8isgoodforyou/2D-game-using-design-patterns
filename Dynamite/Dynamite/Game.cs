@@ -1,5 +1,6 @@
 ﻿using Dynamite.Command;
 using Dynamite.Facade;
+using Dynamite.Mediator;
 using Dynamite.Visitor;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,9 @@ namespace Dynamite
         public byte Winner = 0;
 
         public World world;
+
+        public GameMediator Mediator;
+
         public Player player1, player2;
         public PlayerCollection pcs;
 
@@ -30,11 +34,15 @@ namespace Dynamite
         public Game(int hebergeurWidth, int hebergeurHeight)
         {
             this.world = new World(hebergeurWidth, hebergeurHeight, 48, 48, 1);
-
+            Mediator = new GameMediator();
             player1 = new Player(1, 2, 33, 33, 1, 1, 48, 48, 80, 1);
+            player1.Mediator = Mediator;
             player2 = new Player(1, 2, 33, 33, this.world.MapGrid.GetLength(0) - 2, this.world.MapGrid.GetLength(0) - 2, 48, 48, 80, 2);
+            player2.Mediator = Mediator;
             pcs.Attach(player1);
             pcs.Attach(player2);
+            Mediator.Attach(player1);
+            Mediator.Attach(player2);
             //life up
             pcs.Accept(new LifeGainVisitor());
             this.BombsOnTheMap = new List<Weapon>();

@@ -331,57 +331,59 @@ namespace Dynamite
                                         case 10:
                                             game.world.MapGrid[i, j].BonusHere =
                                                 new Bonus(game.world.MapGrid[i, j].Source.X, game.world.MapGrid[i, j].Source.Y, 1,
-                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.PowerBomb);
+                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.PowerBomb, game.Mediator);
                                             game.world.MapGrid[i, j].Destroyable = game.world.MapGrid[i, j].Fire = false;
                                             break;
                                         case 11:
                                             game.world.MapGrid[i, j].BonusHere =
                                                 new Bonus(game.world.MapGrid[i, j].Source.X, game.world.MapGrid[i, j].Source.Y, 1,
-                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.SpeedBoost);
+                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.SpeedBoost, game.Mediator);
                                             game.world.MapGrid[i, j].Destroyable = game.world.MapGrid[i, j].Fire = false;
                                             break;
                                         case 12:
                                             game.world.MapGrid[i, j].BonusHere =
                                                 new Bonus(game.world.MapGrid[i, j].Source.X, game.world.MapGrid[i, j].Source.Y, 1,
-                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.Desamorce);
+                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.Desamorce, game.Mediator);
                                             game.world.MapGrid[i, j].Destroyable = game.world.MapGrid[i, j].Fire = false;
                                             break;
                                         case 13:
                                             game.world.MapGrid[i, j].BonusHere =
                                                 new Bonus(game.world.MapGrid[i, j].Source.X, game.world.MapGrid[i, j].Source.Y, 1,
-                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.Armor);
+                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.Armor, game.Mediator);
                                             game.world.MapGrid[i, j].Destroyable = game.world.MapGrid[i, j].Fire = false;
                                             break;
 
                                         case 30:
                                             game.world.MapGrid[i, j].BonusHere =
                                                 new Bonus(game.world.MapGrid[i, j].Source.X, game.world.MapGrid[i, j].Source.Y, 1,
-                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.PowerBomb);
+                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.PowerBomb, game.Mediator);
                                             game.world.MapGrid[i, j].Walkable = game.world.MapGrid[i, j].Fire = true;
                                             game.world.MapGrid[i, j].Destroyable = false;
                                             break;
                                         case 31:
                                             game.world.MapGrid[i, j].BonusHere =
                                                 new Bonus(game.world.MapGrid[i, j].Source.X, game.world.MapGrid[i, j].Source.Y, 1,
-                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.SpeedBoost);
+                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.SpeedBoost, game.Mediator);
                                             game.world.MapGrid[i, j].Walkable = game.world.MapGrid[i, j].Fire = true;
                                             game.world.MapGrid[i, j].Destroyable = false;
                                             break;
                                         case 32:
                                             game.world.MapGrid[i, j].BonusHere =
                                                 new Bonus(game.world.MapGrid[i, j].Source.X, game.world.MapGrid[i, j].Source.Y, 1,
-                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.Desamorce);
+                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.Desamorce, game.Mediator);
                                             game.world.MapGrid[i, j].Walkable = game.world.MapGrid[i, j].Fire = true;
                                             game.world.MapGrid[i, j].Destroyable = false;
                                             break;
                                         case 33:
                                             game.world.MapGrid[i, j].BonusHere =
                                                 new Bonus(game.world.MapGrid[i, j].Source.X, game.world.MapGrid[i, j].Source.Y, 1,
-                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.Armor);
+                                                game.world.MapGrid[i, j].Source.Width, game.world.MapGrid[i, j].Source.Height, BonusType.Armor, game.Mediator);
                                             game.world.MapGrid[i, j].Walkable = game.world.MapGrid[i, j].Fire = true;
                                             game.world.MapGrid[i, j].Destroyable = false;
                                             break;
                                     }
+                                    if (game.world.MapGrid[i, j].BonusHere != null)
+                                        game.Mediator.Attach(game.world.MapGrid[i, j].BonusHere);
                                 }
                             }
                             return;

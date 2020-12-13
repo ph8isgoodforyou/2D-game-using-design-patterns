@@ -1,5 +1,6 @@
 ﻿using Dynamite.Chain_of_resp;
 using Dynamite.Command;
+using Dynamite.Mediator;
 using Dynamite.Observer;
 using Dynamite.Visitor;
 using System;
@@ -24,6 +25,7 @@ namespace Dynamite
         public World world;
         public Player otherPlayer;
         public Game game;
+        public GameMediator Mediator;
 
         internal void Accept(IVisitor visitor)
         {
@@ -34,7 +36,13 @@ namespace Dynamite
 
         public List<CommandClass> _commands = new List<CommandClass>();
         int _current = 0;
-
+        public void NoteExplosion(Weapon wep)
+        {
+            if(!game.BombsOnTheMap.Contains(wep))
+            {
+                Console.WriteLine("huh?");
+            }
+        }
         internal void DrawSelf()
         {
             if (!Dead)
@@ -167,6 +175,7 @@ namespace Dynamite
 
         public void Move()
         {
+            Mediator.Notify("moving", this);
             switch (this.Orientation)
             {
                 case MovementDirection.UP:
@@ -276,7 +285,10 @@ namespace Dynamite
                     NewBomb.type = BombType.Fire;
                     NewBomb.Attach(this);
                     NewBomb.Attach(otherplayer);
+                    NewBomb.Mediator = this.Mediator;
+                    Mediator.Attach(NewBomb);
                     BombsOnTheMap.Add(NewBomb);
+                    Mediator.Notify("drop", this);
                     //Case obtain a reference to the bomb dropped on
                     MapGrid[this.CasePosition[0], this.CasePosition[1]].bomb = BombsOnTheMap[BombsOnTheMap.Count - 1];
                     MapGrid[this.CasePosition[0], this.CasePosition[1]].Occupied = true;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dynamite.Mediator;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,14 @@ namespace Dynamite
     {
 
         public BonusType Type = BonusType.None;
+        public GameMediator Mediator;
 
-
-        public Bonus(int x, int y, int frameNumber, int frameWidth, int frameHeight, BonusType type)
+        public Bonus(int x, int y, int frameNumber, int frameWidth, int frameHeight, BonusType type, GameMediator med)
             : base(x, y, frameNumber, frameWidth, frameHeight)
         {
             this.Type = type;
-
+            this.Mediator = med;
+            Mediator.Notify("spawn", this);
         }
 
         public void CheckCasePosition(int TileWidth, int TileHeight)
