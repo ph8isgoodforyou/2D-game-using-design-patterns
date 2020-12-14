@@ -24,6 +24,13 @@ namespace Dynamite.Mediator
                         pl.NoteExplosion((Weapon)obj);
                     }
             }
+            if (msg == "drop")
+                foreach (var o in gobs)
+                    if (o is Weapon)
+                        o.GetType();
+            if (msg == "spawn")
+                foreach (var o in gobs)
+                    o.GetType();
         }
 
         internal void Attach(GameObject player)

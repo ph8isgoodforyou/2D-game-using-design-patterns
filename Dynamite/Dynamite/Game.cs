@@ -41,6 +41,7 @@ namespace Dynamite
         {
             this.world = new World(hebergeurWidth, hebergeurHeight, 48, 48, 1);
             Mediator = new GameMediator();
+            pcs = new PlayerCollection();
             player1 = new Player(1, 2, 33, 33, 1, 1, 48, 48, 80, 1);
             player1.Mediator = Mediator;
             player2 = new Player(1, 2, 33, 33, this.world.MapGrid.GetLength(0) - 2, this.world.MapGrid.GetLength(0) - 2, 48, 48, 80, 2);
