@@ -39,6 +39,29 @@ namespace Dynamite
             Destroyable = destroyable;
         }
 
+        public override void LoadSprite(Image sprite)
+        {
+
+            this.Sprite = sprite;
+
+        }
+        public override void UnloadSprite()
+        {
+
+            this.Sprite = null;
+
+        }
+
+
+        public override void Draw(Graphics gr)
+        {
+            if (this.Sprite != null)
+            {
+                gr.DrawImage(this.Sprite, Source, frameindex * Source.Width, 0, Source.Width, Source.Height, GraphicsUnit.Pixel);
+                gr.DrawRectangle(Pens.Red, this.Source);
+            }
+        }
+
 
         public void SpawnBonus()
         {
@@ -73,20 +96,20 @@ namespace Dynamite
             }
         }
 
-        public new void Draw(Graphics gr)
-        {
-            if (this.Sprite != null)
-            {
-                gr.DrawImage(this.Sprite, Source, frameindex * Source.Width, 0, Source.Width, Source.Height, GraphicsUnit.Pixel);
-                gr.DrawRectangle(Pens.Red, this.Source);
+        //public new void Draw(Graphics gr)
+        //{
+        //    if (this.Sprite != null)
+        //    {
+        //        gr.DrawImage(this.Sprite, Source, frameindex * Source.Width, 0, Source.Width, Source.Height, GraphicsUnit.Pixel);
+        //        gr.DrawRectangle(Pens.Red, this.Source);
 
-            }
-            if (BonusHere != null)
-            {
-                this.BonusHere.Draw(gr);
+        //    }
+        //    if (BonusHere != null)
+        //    {
+        //        this.BonusHere.Draw(gr);
 
-            }
-        }
+        //    }
+        //}
 
     }
 }

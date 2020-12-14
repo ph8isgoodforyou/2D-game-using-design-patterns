@@ -1,6 +1,7 @@
 ﻿using Dynamite.Mediator;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,28 @@ namespace Dynamite
         {
             this.CasePosition[0] = this.Source.Y / TileWidth; //Ligne
             this.CasePosition[1] = this.Source.X / TileWidth; //Colonne
+        }
+        public override void LoadSprite(Image sprite)
+        {
+
+            this.Sprite = sprite;
+
+        }
+        public override void UnloadSprite()
+        {
+
+            this.Sprite = null;
+
+        }
+
+
+        public override void Draw(Graphics gr)
+        {
+            if (this.Sprite != null)
+            {
+                gr.DrawImage(this.Sprite, Source, frameindex * Source.Width, 0, Source.Width, Source.Height, GraphicsUnit.Pixel);
+                gr.DrawRectangle(Pens.Red, this.Source);
+            }
         }
 
     }

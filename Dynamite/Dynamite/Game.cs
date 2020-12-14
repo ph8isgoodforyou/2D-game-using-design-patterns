@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using Dynamite.StatePattern;
 
 namespace Dynamite
 {
@@ -26,6 +27,11 @@ namespace Dynamite
 
         public Player player1, player2;
         public PlayerCollection pcs;
+        
+        public GameState statePause = new GameState(new Pause());
+        public GameState stateGameOver = new GameState(new GameOver());
+        public GameState stateLoadGame = new GameState(new LoadGame());
+        public GameState stateSaveGame = new GameState(new SaveGame());
 
         public List<Weapon> BombsOnTheMap;
         public System.Timers.Timer LogicTimer;
@@ -39,6 +45,7 @@ namespace Dynamite
             player1.Mediator = Mediator;
             player2 = new Player(1, 2, 33, 33, this.world.MapGrid.GetLength(0) - 2, this.world.MapGrid.GetLength(0) - 2, 48, 48, 80, 2);
             player2.Mediator = Mediator;
+            pcs = new PlayerCollection();
             pcs.Attach(player1);
             pcs.Attach(player2);
             Mediator.Attach(player1);
@@ -350,17 +357,18 @@ namespace Dynamite
 
         private void GameOver()
         {
-            if (player1.Dead || player2.Dead)
-            {
-                this.Over = true;
-                this.Paused = true;
-                if (player1.Dead && player2.Dead)
-                    Winner = 0;
-                else if (player2.Dead)
-                    Winner = 2;
-                else if (player1.Dead)
-                    Winner = 1;
-            }
+            stateGameOver.Request(this, "");
+            //if (player1.Dead || player2.Dead)
+            //{
+            //    this.Over = true;
+            //    this.Paused = true;
+            //    if (player1.Dead && player2.Dead)
+            //        Winner = 0;
+            //    else if (player2.Dead)
+            //        Winner = 2;
+            //    else if (player1.Dead)
+            //        Winner = 1;
+            //}
         }
 
         //Manage interactions between worlds and objects
@@ -655,67 +663,70 @@ namespace Dynamite
 
         public void SaveGame(string fileName)
         {
-            System.Runtime.Serialization.IFormatter formatter = new BinaryFormatter();
-            System.IO.FileStream filestream = new System.IO.FileStream(fileName, System.IO.FileMode.Create);
-            try
-            {
-                formatter.Serialize(filestream, new SaveGameData(BombsOnTheMap, world.MapGrid, player1, player2));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error has occured : " + ex.Message);
-                return;
-            }
-            MessageBox.Show("File " + fileName + " saved successfuly !");
+            stateSaveGame.Request(this, fileName);
+            //System.Runtime.Serialization.IFormatter formatter = new BinaryFormatter();
+            //System.IO.FileStream filestream = new System.IO.FileStream(fileName, System.IO.FileMode.Create);
+            //try
+            //{
+            //    formatter.Serialize(filestream, new SaveGameData(BombsOnTheMap, world.MapGrid, player1, player2));
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("An error has occured : " + ex.Message);
+            //    return;
+            //}
+            //MessageBox.Show("File " + fileName + " saved successfuly !");
         }
 
         public void LoadGame(string fileName)
         {
-            SaveGameData save;
+            stateLoadGame.Request(this, fileName);
+            //SaveGameData save;
 
-            System.Runtime.Serialization.IFormatter formatter = new BinaryFormatter();
-            System.IO.FileStream filestream = new System.IO.FileStream(fileName, System.IO.FileMode.Open);
-            try
-            {
-                save = (SaveGameData)formatter.Deserialize(filestream);
+            //System.Runtime.Serialization.IFormatter formatter = new BinaryFormatter();
+            //System.IO.FileStream filestream = new System.IO.FileStream(fileName, System.IO.FileMode.Open);
+            //try
+            //{
+            //    save = (SaveGameData)formatter.Deserialize(filestream);
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error has occured : " + ex.Message);
-                return;
-            }
-            this.BombsOnTheMap = save.bombsOnTheMap;
-            this.world.MapGrid = save.MapGrid;
-            this.player1 = save.player1;
-            this.player2 = save.player2;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("An error has occured : " + ex.Message);
+            //    return;
+            //}
+            //this.BombsOnTheMap = save.bombsOnTheMap;
+            //this.world.MapGrid = save.MapGrid;
+            //this.player1 = save.player1;
+            //this.player2 = save.player2;
 
-            this.Paused = true;
-            this.LogicTimer.Stop();
+            //this.Paused = true;
+            //this.LogicTimer.Stop();
 
-            if (this.Over)
-            {
-                this.Over = false;
-                this.Winner = 0;
-            }
+            //if (this.Over)
+            //{
+            //    this.Over = false;
+            //    this.Winner = 0;
+            //}
         }
 
         public void Pause()
         {
+            statePause.Request(this, "");
             //If the game is already over, no need for pause
-            if (!Over)
-            {
-                if (Paused)
-                {
-                    LogicTimer.Start();
-                    Paused = false;
-                }
-                else
-                {
-                    LogicTimer.Stop();
-                    Paused = true;
-                }
-            }
+            //if (!Over)
+            //{
+            //    if (Paused)
+            //    {
+            //        LogicTimer.Start();
+            //        Paused = false;
+            //    }
+            //    else
+            //    {
+            //        LogicTimer.Stop();
+            //        Paused = true;
+            //    }
+            //}
         }
     }
 }

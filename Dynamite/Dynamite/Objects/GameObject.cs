@@ -107,29 +107,9 @@ namespace Dynamite
         }
 
 
-        public void LoadSprite(Image sprite)
-        {
-
-            this.Sprite = sprite;
-
-        }
-        public void UnloadSprite()
-        {
-
-            this.Sprite = null;
-
-        }
-
-
-
-        public void Draw(Graphics gr)
-        {
-            if (this.Sprite != null)
-            {
-                gr.DrawImage(this.Sprite, Source, frameindex * Source.Width, 0, Source.Width, Source.Height, GraphicsUnit.Pixel);
-                gr.DrawRectangle(Pens.Red, this.Source);
-            }
-        }
+        public abstract void LoadSprite(Image sprite);
+        public abstract void UnloadSprite();
+        public abstract void Draw(Graphics gr);
 
 
 

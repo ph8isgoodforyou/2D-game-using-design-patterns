@@ -2,6 +2,7 @@
 using Dynamite.Observer;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,6 +76,29 @@ namespace Dynamite
             this._DetonationTime = detonationTime;
 
             this._frameTime = DetonationTime / 8;
+        }
+
+        public override void LoadSprite(Image sprite)
+        {
+
+            this.Sprite = sprite;
+
+        }
+        public override void UnloadSprite()
+        {
+
+            this.Sprite = null;
+
+        }
+
+
+        public override void Draw(Graphics gr)
+        {
+            if (this.Sprite != null)
+            {
+                gr.DrawImage(this.Sprite, Source, frameindex * Source.Width, 0, Source.Width, Source.Height, GraphicsUnit.Pixel);
+                gr.DrawRectangle(Pens.Red, this.Source);
+            }
         }
 
 

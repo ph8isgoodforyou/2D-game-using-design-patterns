@@ -102,6 +102,11 @@
     </Compile>
     <Compile Include="SaveGameData.cs" />
     <Compile Include="Server.cs" />
+    <Compile Include="StatePattern\GameOver.cs" />
+    <Compile Include="StatePattern\LoadGame.cs" />
+    <Compile Include="StatePattern\Pause.cs" />
+    <Compile Include="StatePattern\SaveGame.cs" />
+    <Compile Include="StatePattern\State.cs" />
     <Compile Include="Visitor\PlayerCollection.cs" />
     <Compile Include="Visitor\LifeGainVisitor.cs" />
     <Compile Include="Visitor\SlowVisitor.cs" />

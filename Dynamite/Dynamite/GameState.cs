@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dynamite.StatePattern;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,27 @@ namespace Dynamite
     [Serializable]
     public class GameState
     {
+        private State _state;
+
+        // Constructor
+        public GameState(State state)
+        {
+            this.State = state;
+        }
+        public GameState()
+        {
+        }
+
+        public State State
+        {
+            get { return _state; }
+            set { _state = value; }
+        }
+
+        public void Request(Game game, string fileName)
+        {
+            _state.Handle(game, fileName);
+        }
 
         //If the game is paused
         public bool Paused = false;

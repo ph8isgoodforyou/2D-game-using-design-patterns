@@ -303,7 +303,20 @@ namespace Dynamite
             g.DrawString(CasePosition[0].ToString() + ":" + CasePosition[1].ToString(), new Font("Arial", 16), new SolidBrush(Color.Pink), this.Source.X, this.Source.Y);
 
         }
-        public new void Draw(Graphics gr)
+        public override void LoadSprite(Image sprite)
+        {
+
+            this.Sprite = sprite;
+
+        }
+        public override void UnloadSprite()
+        {
+
+            this.Sprite = null;
+
+        }
+
+        public override void Draw(Graphics gr)
         {
             if (this.Sprite != null)
             {
